@@ -27,4 +27,12 @@ public class servicePerson{
     public List<Person> fetchAll(){
         return personDoa.getAllPeople();
     }
+
+    public Person getPerson(UUID id){
+        return personDoa.fetchPersonById(id);
+    }
+
+    public void updatePersonDetails(Person person){
+        personDoa.updatePerson(person);
+    }
 }

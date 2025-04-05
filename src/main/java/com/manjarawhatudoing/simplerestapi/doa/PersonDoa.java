@@ -14,6 +14,9 @@ public interface PersonDoa {
         return insertPerson(id, person);
     }
 
-    public List<Person> getAllPeople();
+    List<Person> getAllPeople();
 
+    Person fetchPersonById(UUID id);
+
+    void updatePerson(Person person);
 }

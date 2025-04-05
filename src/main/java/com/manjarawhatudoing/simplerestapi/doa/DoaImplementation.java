@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository("initial")
+
 public class DoaImplementation implements PersonDoa{
     List<Person> DB = new ArrayList<>();
 
@@ -20,5 +21,16 @@ public class DoaImplementation implements PersonDoa{
     @Override
     public List<Person> getAllPeople() {
         return DB;
+    }
+
+    @Override
+    public Person fetchPersonById(UUID id) {
+        return DB.stream().filter(person -> person.getId().equals(id)).findFirst().orElse(null);
+    }
+
+    @Override
+    public void updatePerson(Person person) {
+        Person px = DB.stream().filter(p -> p.getId().equals(person.getId())).findFirst().orElse(null);
+        if (px != null) px.setName(person.getName());
     }
 }
