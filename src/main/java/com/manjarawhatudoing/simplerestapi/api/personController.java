@@ -29,13 +29,14 @@ public class personController {
         return servicePerson.fetchAll();
     }
 
-    @GetMapping(path = {"id"})
+    @GetMapping(path = "{id}")
     public Person getPersonById(@PathVariable("id") UUID id){
         return servicePerson.getPerson(id);
     }
 
-    @PutMapping(path = {"id"})
-    public void updatePerson(@RequestBody Person person){
-        return servicePerson.updatePersonDetails(person);
+    @PutMapping(path = {"{id}"})
+    public void updatePerson(@PathVariable("id") UUID id, @RequestBody Person person){
+        person.setId(id);
+        servicePerson.updatePersonDetails(person);
     }
 }

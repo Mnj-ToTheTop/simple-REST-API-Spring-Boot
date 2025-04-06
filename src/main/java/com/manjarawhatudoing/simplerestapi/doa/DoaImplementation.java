@@ -10,7 +10,7 @@ import java.util.UUID;
 @Repository("initial")
 
 public class DoaImplementation implements PersonDoa{
-    List<Person> DB = new ArrayList<>();
+    public static List<Person> DB = new ArrayList<>();
 
     @Override
     public int insertPerson(UUID id, Person person) {
